@@ -1,0 +1,411 @@
+/* =====================================================================
+   WALMART SALES FORECASTING - PREMIUM SAAS STYLES
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-color: #4f46e5;      /* Indigo */
+    --primary-light: #818cf8;
+    --secondary-color: #ec4899;    /* Pink */
+    --success-color: #10b981;      /* Emerald */
+    --warning-color: #f59e0b;      /* Amber */
+    --danger-color: #ef4444;       /* Red */
+    --info-color: #06b6d4;         /* Cyan */
+    
+    --bg-main: #f3f4f6;            /* Very light gray/blue background */
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    /* Subtle background pattern */
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-attachment: fixed;
+    line-height: 1.6;
+}
+
+/* =====================================================================
+   CARDS & COMPONENTS (GLASSMORPHISM)
+   ===================================================================== */
+
+.card {
+    border: none;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-header {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    padding: 1.25rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-main) !important;
+}
+
+/* Make headers inside original bg-primary classes still look good, or overwrite */
+.card-header.bg-primary {
+    background: transparent !important;
+}
+.card-header.bg-primary h5 {
+    color: var(--text-main) !important;
+    font-weight: 700;
+}
+.card-header.bg-primary i {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+/* Statistics Cards */
+.stat-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glassy overlay effect for stat cards */
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
+    z-index: -1;
+    border-radius: 16px;
+}
+
+.stat-card:hover {
+    background: linear-gradient(135deg, #4338ca 0%, #db2777 100%);
+}
+
+.stat-card .stat-icon {
+    font-size: 3rem;
+    opacity: 0.9;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+    /* Overwrite text colors inside stat card */
+    color: white !important; 
+}
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.stat-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-top: 15px;
+    letter-spacing: -0.5px;
+}
+.stat-card .card-title {
+    font-weight: 500;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+/* =====================================================================
+   NAVBAR
+   ===================================================================== */
+
+.navbar {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(15px);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color) !important;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-brand i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    -webkit-text-fill-color: var(--primary-color);
+    animation: rotateSlow 4s linear infinite;
+    display: inline-block;
+}
+
+@keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+    color: var(--primary-color) !important;
+    background-color: rgba(79, 70, 229, 0.1);
+}
+
+/* =====================================================================
+   CHARTS CONTAINERS
+   ===================================================================== */
+
+canvas {
+    max-height: 350px;
+    padding: 10px;
+}
+
+/* =====================================================================
+   BUTTONS
+   ===================================================================== */
+
+.btn {
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #6366f1 100%);
+    border: none;
+    color: white;
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.5);
+}
+
+/* =====================================================================
+   FORMS
+   ===================================================================== */
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-main);
+    background-color: #f9fafb;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: white;
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+/* =====================================================================
+   TABLES
+   ===================================================================== */
+
+.table {
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.table thead th {
+    background-color: rgba(243, 244, 246, 0.8);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    border-bottom: 2px solid #e5e7eb;
+    padding: 1rem;
+}
+
+.table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(79, 70, 229, 0.03);
+}
+
+/* =====================================================================
+   ALERTS
+   ===================================================================== */
+
+.alert {
+    border: none;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    padding: 1.5rem;
+    border-left: 5px solid;
+}
+
+.alert-info {
+    background-color: #eff6ff;
+    color: #1e3a8a;
+    border-left-color: #3b82f6;
+}
+.alert-info .alert-heading { color: #1e40af; font-weight: 700; }
+
+.alert-success {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border-left-color: var(--success-color);
+}
+
+/* =====================================================================
+   BADGES & LABELS
+   ===================================================================== */
+
+.badge {
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* =====================================================================
+   PREDICTION RESULTS
+   ===================================================================== */
+
+.prediction-result {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding: 30px;
+    border-radius: 16px;
+    color: white;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.prediction-result::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+    animation: pulseGlow 4s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+.prediction-result h2 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin: 10px 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.prediction-result p {
+    font-weight: 500;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* =====================================================================
+   ANIMATIONS
+   ===================================================================== */
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-slide {
+    animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Delay staggered animations */
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.delay-3 { animation-delay: 0.3s; opacity: 0; }
+.delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+
+footer {
+    margin-top: auto;
+    border-top: 1px solid #e5e7eb;
+    background-color: white !important;
+    color: var(--text-muted) !important;
+    padding: 2rem 0 !important;
+}
+
+footer p {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* =====================================================================
+   CUSTOM SCROLLBAR
+   ===================================================================== */
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }

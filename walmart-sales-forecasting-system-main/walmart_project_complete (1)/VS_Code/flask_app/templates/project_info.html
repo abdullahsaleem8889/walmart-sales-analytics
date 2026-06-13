@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Info - Walmart Sales Forecasting</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="bi bi-graph-up"></i> Walmart Sales AI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/analytics">Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/insights">Insights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/prediction">Predictor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/nlp-assistant">NLP Assistant</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/project-info">Project Info</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-4 animate-slide">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2><i class="bi bi-file-text"></i> Project Information</h2>
+                <p class="text-muted">Complete details about this ML forecasting project</p>
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-info-circle"></i> Project Overview</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6 id="projectTitle">Walmart Weekly Sales Forecasting</h6>
+                        <p id="projectDesc" class="text-muted">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dataset Info -->
+        <div class="row mb-4">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="bi bi-database"></i> Dataset Information</h5>
+                    </div>
+                    <div class="card-body" id="datasetInfo">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-speedometer2"></i> Model Performance</h5>
+                    </div>
+                    <div class="card-body" id="performanceInfo">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0"><i class="bi bi-gear"></i> Advanced Features Engineered</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row" id="featuresContainer">
+                            <div class="col-12"><div class="spinner-border" role="status"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Models Used -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-danger text-white">
+                        <h5 class="mb-0"><i class="bi bi-cpu"></i> Machine Learning Models</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row" id="modelsContainer">
+                            <div class="col-12"><div class="spinner-border" role="status"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Methodology -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        <h5 class="mb-0"><i class="bi bi-diagram-3"></i> Methodology</h5>
+                    </div>
+                    <div class="card-body">
+                        <ol class="list-styled">
+                            <li class="mb-3">
+                                <strong>Data Collection & Integration:</strong> Merged 4 datasets (sales, features, stores, test)
+                            </li>
+                            <li class="mb-3">
+                                <strong>Feature Engineering:</strong> Created 30+ features including temporal, lag, rolling, and interaction features
+                            </li>
+                            <li class="mb-3">
+                                <strong>Model Training:</strong> Trained multiple models with proper time-series cross-validation
+                            </li>
+                            <li class="mb-3">
+                                <strong>Ensemble Approach:</strong> Combined predictions from all models for optimal accuracy
+                            </li>
+                            <li class="mb-3">
+                                <strong>Evaluation:</strong> Rigorous validation using RMSE, MAE, MAPE, and R² metrics
+                            </li>
+                            <li>
+                                <strong>Deployment:</strong> Production-ready Flask web application for real-time predictions
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Stack -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0"><i class="bi bi-code-square"></i> Technical Stack</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h6 class="fw-bold">Backend</h6>
+                                <ul class="list-unstyled">
+                                    <li><i class="bi bi-check-circle text-success"></i> Python 3.9+</li>
+                                    <li><i class="bi bi-check-circle text-success"></i> Flask</li>
+                                    <li><i class="bi bi-check-circle text-success"></i> Pandas & NumPy</li>
+                                    <li><i class="bi bi-check-circle text-success"></i> Scikit-learn</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="fw-bold">ML Libraries</h6>
+                                <ul class="list-unstyled">
+                                    <li><i class="bi bi-check-circle text-success"></i> XGBoost</li>
+                                    <li><i class="bi bi-check-circle text-success"></i> LightGBM</li>
+                                    <li><i class="bi bi-check-circle text-success"></i> Gradient Boosting</li>
+                                    <li><i class="bi bi-check-circle text-success"></i> Random Forest</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="fw-bold">Frontend</h6>
+                                <ul class="list-unstyled">
+                                    <li><i class="bi bi-check-circle text-success"></i> Bootstrap 5</li>
+                                    <li><i class="bi bi-check-circle text-success"></i> Chart.js</li>
+                                    <li><i class="bi bi-check-circle text-success"></i> JavaScript</li>
+                                    <li><i class="bi bi-check-circle text-success"></i> HTML5 & CSS3</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container-fluid text-center">
+            <p class="mb-0">Walmart Sales Forecasting Dashboard | © 2026</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/project-info.js') }}"></script>
+</body>
+</html>

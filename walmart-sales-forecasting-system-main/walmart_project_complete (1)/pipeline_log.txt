@@ -1,0 +1,39 @@
+10:26:52 | INFO     | ============================================================
+10:26:52 | INFO     |   STEP 1 — EXTRACT  (CSV files padhna)
+10:26:52 | INFO     | ============================================================
+10:26:52 | INFO     |   [OK]   stores.csv           →      45 rows × 3 cols
+10:26:52 | INFO     |   [OK]   features.csv         →   8,190 rows × 12 cols
+10:26:53 | INFO     |   [OK]   train.csv            → 421,570 rows × 5 cols
+10:26:53 | WARNING  |   [SKIP] test.csv nahi mila
+10:26:53 | INFO     | 
+10:26:53 | INFO     | ============================================================
+10:26:53 | INFO     |   STEP 2 — TRANSFORM  (Data clean karna)
+10:26:53 | INFO     | ============================================================
+10:26:53 | INFO     |   [OK]   stores     → 45 rows (clean)
+10:26:53 | INFO     |   [OK]   features   → 8,190 rows (clean)
+10:26:53 | INFO     |   [FIX]  1,285 negative sales → clipped to 0
+10:26:53 | INFO     |   [OK]   train      → 421,570 rows (clean)
+10:26:53 | INFO     | 
+10:26:53 | INFO     | ============================================================
+10:26:53 | INFO     |   STEP 2.5 — SQL SERVER CONNECTION
+10:26:53 | INFO     | ============================================================
+10:26:53 | INFO     | [OK] Connected → (localdb)\mssqllocaldb/WalmartSalesForecast  (driver: ODBC Driver 17 for SQL Server)
+10:26:53 | INFO     | 
+10:26:53 | INFO     | ============================================================
+10:26:53 | INFO     |   STEP 3 — LOAD  (SQL Server mein insert karna)
+10:26:53 | INFO     | ============================================================
+10:26:53 | INFO     |   [OK]   Old data deleted from SalesTest
+10:27:12 | INFO     |   [OK]   Old data deleted from SalesTraining
+10:27:12 | INFO     |   [OK]   Old data deleted from ModelPredictions
+10:27:13 | INFO     |   [OK]   Old data deleted from Features
+10:27:13 | INFO     |   [OK]   Old data deleted from Stores
+10:27:13 | INFO     | 
+  -- Stores (45 rows) --
+10:27:13 | INFO     |   [OK]   Inserted: 45  |  Failed: 0  |  SQL count: 45  |  Time: 0.0s
+10:27:13 | INFO     | 
+  -- Features (8,190 rows) --
+10:27:14 | INFO     |   [OK]   Inserted: 8,190  |  Failed: 0  |  SQL count: 8,190  |  Time: 1.4s
+10:27:14 | INFO     | 
+  -- SalesTraining (421,570 rows) --
+10:28:41 | INFO     |   [OK]   Inserted: 421,570  |  Failed: 0  |  SQL count: 421,570  |  Time: 87.1s
+10:28:41 | INFO     |   [OK]   SQL connection closed.
